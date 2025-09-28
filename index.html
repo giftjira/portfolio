@@ -2,109 +2,445 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Software Engineer</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header class="site-header">
-  <h1>Software Engineer Portfolio</h1>
-  <p>Master’s Degree Applicant</p>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Software Engineer Portfolio</h1>
+        <p>Master’s Degree Applicant • Computer Vision • Robotics • Web</p>
+      </div>
+      <nav class="topnav">
+        <a href="#personal-info">Personal</a>
+        <a href="#background">Background</a>
+        <a href="#skills">Skills</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#projects">Projects</a>
+        <a href="#interests">Interests</a>
+        <a href="#certs">Certificates</a>
+        <a href="#closing">Closing</a>
+      </nav>
+    </div>
+  </header>
 
-<nav class="site-nav">
-  <a href="#personal-info">Personal Info</a>
-  <a href="#background">Education</a>
-  <a href="#skills">Skills</a>
-  <a href="#hardware">Hardware</a>
-  <a href="#projects">Projects</a>
-  <a href="#interests">Interests</a>
-  <a href="#certs">Certificates</a>
-  <a href="#closing">Closing</a>
-</nav>
+  <main class="container">
+    <!-- PERSONAL INFO -->
+    <section id="personal-info" class="section">
+      <h2 class="section-title">Personal Info</h2>
+      <div class="card">
+        <div class="grid two">
+          <div>
+            <p><strong>Name:</strong> Thunyasiri Jirachaiyapunt</p>
+            <p><strong>Contact:</strong> <a href="mailto:thunyasiri.jir@gmail.com">you@example.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/thunyasiri-jirachaiyapunt-546162200/" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a></p>
+          </div>
+          <p><strong>Bio:</strong> A motivated software engineer with expertise in computer vision, robotics, and AI-driven systems.</p>
+        </div>
+      </div>
+    </section>
 
-<main>
-  <section id="personal-info" class="card">
-    <h2>Personal Info</h2>
-    <p><strong>Name:</strong> NooHeaw</p>
-    <p><strong>Contact:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a></p>
-    <p><strong>Bio:</strong> A motivated software engineer with expertise in computer vision, robotics, and AI-driven systems.</p>
-  </section>
+    <!-- BACKGROUND / EDUCATION (Vertical Timeline) -->
+    <section id="background" class="section">
+      <h2 class="section-title">Background / Education</h2>
 
-  <section id="background" class="card">
-    <h2>Background / Education</h2>
-    <p><strong>Coursework:</strong> Software Engineering, AI/ML, Computer Vision, Robotics, IoT Systems</p>
-    <p><strong>Projects:</strong> Research and academic projects on digital measuring, robotics integration, and AI vision.</p>
-  </section>
+      <div class="timeline">
+        <!-- Education -->
+        <article class="t-item card">
+          <div class="t-marker"></div>
+          <div class="t-header">
+            <img class="t-thumb" src="assets/timeline/education.png" alt="Education">
+            <div>
+              <h3>Education</h3>
+              <div class="t-meta">Start – End (Month YYYY – Month YYYY)</div>
+            </div>
+          </div>
+          <div class="t-body">
+            <p><strong>Bachelor of Engineering in Chemical Engineering</strong></p>
+            <p>Thammasat University, Bangkok, Thailand.</p>
+            <ul class="bullets">
+              <li><strong>Relevant Coursework:</strong> Basic Computer Programming</li>
+              <li><strong>Senior Project:</strong> Absorbance material</li>
+            </ul>
+          </div>
+        </article>
 
-  <section id="skills" class="card">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li><strong>Programming Languages (AI Assist):</strong> Python, R, VBA, SQL, C++, JavaScript</li>
-      <li><strong>Frameworks:</strong> PyTorch, Keras, OpenCV, TensorFlow</li>
-      <li><strong>Tools:</strong> Git, Colab, Visual Studio, PLC systems</li>
-      <li><strong>Database:</strong> Microsoft SQL Server</li>
-    </ul>
-  </section>
+        <!-- Career Background: MTEC -->
+        <article class="t-item card">
+          <div class="t-marker"></div>
+          <div class="t-header">
+            <img class="t-thumb" src="assets/timeline/mtec.png" alt="MTEC">
+            <div>
+              <h3>Career Background — MTEC</h3>
+              <div class="t-meta">Start – End (Month YYYY – Month YYYY)</div>
+            </div>
+          </div>
+          <div class="t-body">
+            <p class="role"><strong>Role:</strong> [Your Role]</p>
+            <ul class="bullets">
+              <li>Responsibility 1 related to measurement/automation.</li>
+              <li>Responsibility 2 showcasing software/hardware integration.</li>
+              <li>Responsibility 3 with impact (e.g., time saved, throughput improved).</li>
+            </ul>
+          </div>
+        </article>
 
-  <section id="hardware" class="card">
-    <h2>Hardware &amp; Systems</h2>
-    <ul>
-      <li>Digital Measuring Tool</li>
-      <li>Digital Microscope (Nikon VR500e)</li>
-      <li>Handheld / Touchscreen Devices</li>
-      <li>USB Camera</li>
-      <li>Robotics (AMR &amp; System Integration)</li>
-      <li>Embedded Systems (Tinkerboard with Linux OS)</li>
-    </ul>
-  </section>
+        <!-- Career Background: ROHM Integrated System -->
+        <article class="t-item card">
+          <div class="t-marker"></div>
+          <div class="t-header">
+            <img class="t-thumb" src="assets/timeline/rohm.jpg" alt="ROHM Integrated System">
+            <div>
+              <h3>Career Background — ROHM Integrated System</h3>
+              <div class="t-meta">Start – End (Month YYYY – Month YYYY)</div>
+            </div>
+          </div>
+          <div class="t-body">
+            <p class="role"><strong>Role:</strong> [Your Role]</p>
+            <ul class="bullets">
+              <li>Responsibility 1 with specific tools/tech.</li>
+              <li>Responsibility 2 (e.g., built APIs, dashboards, pipelines).</li>
+              <li>Responsibility 3 (e.g., led integration, cross-team collab).</li>
+            </ul>
+          </div>
+        </article>
 
-  <section id="projects" class="card">
-    <h2>Professional / Project Experience (GitHub Demo)</h2>
-    <ul>
-      <li><strong>Digital QC Measuring:</strong> Automated measurement pipeline [<a href="https://github.com/yourrepo" target="_blank" rel="noopener">GitHub Demo</a>]</li>
-      <li><strong>AMR Robotics:</strong> AMR navigation &amp; integration [<a href="https://github.com/yourrepo" target="_blank" rel="noopener">GitHub Demo</a>]</li>
-      <li><strong>AI Vision:</strong> CV system with PyTorch &amp; OpenCV [<a href="https://github.com/yourrepo" target="_blank" rel="noopener">GitHub Demo</a>]</li>
-    </ul>
-  </section>
+        <!-- Career Background: Panasonic -->
+        <article class="t-item card">
+          <div class="t-marker"></div>
+          <div class="t-header">
+            <img class="t-thumb" src="assets/timeline/panasonic.jpeg" alt="Panasonic Manufacturing (Thailand)">
+            <div>
+              <h3>Career Background — Panasonic Manufacturing (Thailand)</h3>
+              <div class="t-meta">Start – End (Month YYYY – Month YYYY)</div>
+            </div>
+          </div>
+          <div class="t-body">
+            <p class="role"><strong>Role:</strong> [Your Role]</p>
+            <ul class="bullets">
+              <li>Responsibility 1 (e.g., AMR deployment, vision QC).</li>
+              <li>Responsibility 2 (e.g., PLC/Towerlight automation).</li>
+              <li>Responsibility 3 (e.g., cost reduction, reliability gains).</li>
+            </ul>
+          </div>
+        </article>
 
-  <section id="interests" class="card">
-    <h2>Personal Interests</h2>
-    <ul>
-      <li>AI Integration App</li>
-      <li>Game</li>
-      <li>Mobile App</li>
-    </ul>
-  </section>
+        <!-- Coursework sub-topic -->
+        <article class="t-item card">
+          <div class="t-marker"></div>
+          <div class="t-header">
+            <img class="t-thumb" src="assets/timeline/coursework.jpg" alt="Coursework">
+            <div>
+              <h3>Coursework</h3>
+              <div class="t-meta">(As previous info)</div>
+            </div>
+          </div>
+          <div class="t-body">
+            <p>List your coursework or a short description here.</p>
+          </div>
+        </article>
 
-  <section id="certs" class="card">
-    <h2>Certificates &amp; Achievements</h2>
-    <p>[List of certifications, awards, scholarships]</p>
-  </section>
+        <!-- Project sub-topic -->
+        <article class="t-item card">
+          <div class="t-marker"></div>
+          <div class="t-header">
+            <img class="t-thumb" src="assets/timeline/projects.jpg" alt="Project">
+            <div>
+              <h3>Project</h3>
+              <div class="t-meta">(As previous info)</div>
+            </div>
+          </div>
+          <div class="t-body">
+            <p>Briefly describe your notable academic project(s) here.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <section id="closing" class="card">
-    <h2>Closing Statement</h2>
-    <p>I bring a unique combination of software engineering expertise and hands-on experience in robotics, AI, and computer vision. I am eager to further my research and innovation through a Master’s degree program.</p>
-  </section>
-</main>
+    <!-- TECHNICAL SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-head">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="arrows">
+          <button class="arrow" data-scroll="skills" data-dir="-1" aria-label="Scroll left">&#10094;</button>
+          <button class="arrow" data-scroll="skills" data-dir="1" aria-label="Scroll right">&#10095;</button>
+        </div>
+      </div>
+      <div class="hscroll" id="skills">
+        <div class="card pill">
+          <h3>Programming Languages (AI Assist)</h3>
+          <div class="icons-grid">
+            <figure><img src="assets/icons/python.jpg" alt="Python"><figcaption>Python</figcaption></figure>
+            <figure><img src="assets/icons/vba.jpg" alt="VBA"><figcaption>VBA</figcaption></figure>
+            <figure><img src="assets/icons/nodejs.jpg" alt="NodeJS"><figcaption>NodeJS</figcaption></figure>
+          </div>
+        </div>
+        <div class="card pill">
+          <h3>Frameworks</h3>
+          <div class="icons-grid">
+            <figure><img src="assets/icons/msexcel.png" alt="MS Excel"><figcaption>MS Excel</figcaption></figure>
+            <figure><img src="assets/icons/userform.svg" alt="Userform"><figcaption>Userform</figcaption></figure>
+            <figure><img src="assets/icons/nasdir.svg" alt="OpenCV"><figcaption>OpenCV</figcaption></figure>
+            <figure><img src="assets/icons/pytorch.png" alt="PyTorch"><figcaption>PyTorch</figcaption></figure>
+            <figure><img src="assets/icons/keras.svg" alt="Keras"><figcaption>Keras</figcaption></figure>
+            <figure><img src="assets/icons/tensorflow.svg" alt="TensorFlow"><figcaption>TensorFlow</figcaption></figure>
+            <figure><img src="assets/icons/opencv.svg" alt="OpenCV"><figcaption>OpenCV</figcaption></figure>
+            <figure><img src="assets/icons/yolov5.svg" alt="yolov5"><figcaption>yolov5</figcaption></figure>
+            <figure><img src="assets/icons/react.svg" alt="React"><figcaption>React</figcaption></figure>
+            <figure><img src="assets/icons/api.svg" alt="API"><figcaption>API</figcaption></figure>
+            <figure><img src="assets/icons/rest.svg" alt="REST"><figcaption>REST</figcaption></figure>
+        </div>
+        </div>
+        <div class="card pill">
+          <h3>Tools</h3>
+          <div class="icons-grid">
+            <figure><img src="assets/icons/git.svg" alt="Git"><figcaption>Git</figcaption></figure>
+            <figure><img src="assets/icons/aicoding.svg" alt="AI Assist Coding"><figcaption>AI Assist Coding</figcaption></figure>
+            <figure><img src="assets/icons/exceldevtool.svg" alt="Excel Developer Tool"><figcaption>Excel Developer Tool</figcaption></figure>
+            <figure><img src="assets/icons/vscode.svg" alt="VS Code"><figcaption>VS Code</figcaption></figure>
+            <figure><img src="assets/icons/roboflow.svg" alt="Roboflow"><figcaption>Roboflow</figcaption></figure>
+            <figure><img src="assets/icons/teachablemc.svg" alt="Teachable Machine"><figcaption>Teachable Machine</figcaption></figure>
+            <figure><img src="assets/icons/googlecolab.svg" alt="Google Colab"><figcaption>Google Colab</figcaption></figure>
+            <figure><img src="assets/icons/postman.svg" alt="Postman"><figcaption>Postman</figcaption></figure>
+            <figure><img src="assets/icons/rcs.svg" alt="RCS"><figcaption>RCS</figcaption></figure>
+            <figure><img src="assets/icons/walle.svg" alt="Walle"><figcaption>Walle</figcaption></figure>
+          </div>
+          </div>
+        </div>
+        <div class="card pill">
+          <h3>Database</h3>
+          <div class="icons-grid">
+            <figure><img src="assets/icons/mysql.svg" alt="MySQL"><figcaption>MySQL</figcaption></figure>
+          </div>
+        </div>
+      </div>
+      <p class="hint">Add your real SVG/PNG icons under <code>assets/icons/</code>.</p>
+    </section>
 
-<footer class="site-footer">
-  <p>&copy; 2025 Your Name | Portfolio</p>
-</footer>
+    <!-- HARDWARE & SYSTEMS -->
+    <section id="hardware" class="section">
+      <div class="section-head">
+        <h2 class="section-title">Hardware & Systems</h2>
+        <div class="arrows">
+          <button class="arrow" data-scroll="hw" data-dir="-1" aria-label="Scroll left">&#10094;</button>
+          <button class="arrow" data-scroll="hw" data-dir="1" aria-label="Scroll right">&#10095;</button>
+        </div>
+      </div>
+      <div class="hscroll" id="hw">
+        <div class="card pill">
+          <div class="img-cover"><img src="assets/hw/digital-measuring.jpg" alt="Digital Measuring Tool"></div>
+          <h3>Digital Measuring Tool</h3>
+        </div>
+        <div class="card pill">
+          <div class="img-cover"><img src="assets/hw/nikon-vr500e.jpg" alt="Digital Microscope (Nikon VR500e)"></div>
+          <h3>Digital Microscope (Nikon VR500e)</h3>
+        </div>
+        <div class="card pill">
+          <div class="img-cover"><img src="assets/hw/handheld.jpg" alt="Handheld / Touchscreen Devices"></div>
+          <h3>Handheld / Touchscreen Devices</h3>
+        </div>
+        <div class="card pill">
+          <div class="img-cover"><img src="assets/hw/usb-camera.jpg" alt="USB Camera"></div>
+          <h3>USB Camera</h3>
+        </div>
+        <div class="card pill">
+          <div class="img-cover"><img src="assets/hw/amr.jpg" alt="Robotics (AMR & System Integration)"></div>
+          <h3>Robotics (AMR & System Integration)</h3>
+        </div>
+        <div class="card pill">
+          <div class="img-cover"><img src="assets/hw/tinkerboard.jpg" alt="Embedded Systems (Tinkerboard, Linux)"></div>
+          <h3>Embedded Systems (Tinkerboard with Linux OS)</h3>
+        </div>
+      </div>
+    </section>
 
-<script>
-  // Optional: smooth scroll for in-page nav
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href').slice(1);
-      const el = document.getElementById(id);
-      if (el) {
-        e.preventDefault();
-        el.scrollIntoView({behavior: 'smooth'});
-      }
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2 class="section-title">Professional / Project Experience</h2>
+      </div>
+
+      <div class="project card">
+        <div class="project-head">
+          <h3>Digital QC Measuring</h3>
+          <div class="links">
+            <a class="link" href="https://github.com/yourrepo-digital-qc" target="_blank" rel="noopener">GitHub Demo</a>
+            <button class="btn btn-solid btn-sm" data-video-url="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1">Watch Project Video</button>
+          </div>
+        </div>
+        <div class="gallery">
+          <img src="assets/projects/qc1.jpg" alt="QC 1">
+          <img src="assets/projects/qc2.jpg" alt="QC 2">
+          <img src="assets/projects/qc3.jpg" alt="QC 3">
+        </div>
+        <ul class="kv">
+          <li><strong>Programming Language:</strong> VBA</li>
+          <li><strong>Framework:</strong> MS Excel, User Form, NAS Directory</li>
+          <li><strong>Tool:</strong> AI Assist Coding, Excel Developer Tool</li>
+          <li><strong>Environment:</strong> Advanced measuring tool, Windows OS</li>
+        </ul>
+      </div>
+
+      <div class="project card">
+        <div class="project-head">
+          <h3>AMR Robotics</h3>
+          <div class="links">
+            <a class="link" href="https://github.com/yourrepo-amr" target="_blank" rel="noopener">GitHub Demo</a>
+            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/YOUR_VIDEO_ID_2">Watch Project Video</button>
+          </div>
+        </div>
+        <div class="gallery">
+          <img src="assets/projects/amr1.jpg" alt="AMR 1">
+          <img src="assets/projects/amr2.jpg" alt="AMR 2">
+          <img src="assets/projects/amr3.jpg" alt="AMR 3">
+        </div>
+        <ul class="kv">
+          <li><strong>Programming Language:</strong> Node.js</li>
+          <li><strong>Framework:</strong> React, API, REST</li>
+          <li><strong>Tool:</strong> AI Assist Coding, VS Code, Postman, RCS, Walle, MySQL</li>
+          <li><strong>Environment:</strong> Web Application, IoT, Robotics (AMR)</li>
+        </ul>
+      </div>
+
+      <div class="project card">
+        <div class="project-head">
+          <h3>AI Vision</h3>
+          <div class="links">
+            <a class="link" href="https://github.com/yourrepo-ai-vision" target="_blank" rel="noopener">GitHub Demo</a>
+            <button class="btn btn-solid btn-sm" data-video-url="https://drive.google.com/file/d/DRIVE_FILE_ID/view?usp=sharing">Watch Project Video</button>
+          </div>
+        </div>
+        <div class="gallery">
+          <img src="assets/projects/aiv1.jpg" alt="AI Vision 1">
+          <img src="assets/projects/aiv2.jpg" alt="AI Vision 2">
+          <img src="assets/projects/aiv3.jpg" alt="AI Vision 3">
+        </div>
+        <ul class="kv">
+          <li><strong>Programming Language:</strong> Python</li>
+          <li><strong>Framework:</strong> PyTorch, Keras, OpenCV, Roboflow, Teachable Machine, Google Colab</li>
+          <li><strong>Tool:</strong> AI Assist Coding, VS Code</li>
+          <li><strong>Environment:</strong> Linux OS, Computer Vision, IoT</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PERSONAL INTERESTS -->
+    <section id="interests" class="section">
+      <h2 class="section-title">Personal Interests</h2>
+      <div class="hscroll">
+        <div class="card pill"><h3>AI Integration App</h3><p>Prototyping assistants that connect sensors, APIs, and UI.</p></div>
+        <div class="card pill"><h3>Game</h3><p>Building small gameplay prototypes and physics experiments.</p></div>
+        <div class="card pill"><h3>Mobile App</h3><p>Lightweight utilities for capture, labeling, and on-device ML.</p></div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certs" class="section">
+      <h2 class="section-title">Certificates & Achievements</h2>
+      <div class="card cert">
+        <div class="cert-media"><img src="assets/certs/borntodev-python.jpg" alt="Python course by BornToDev"></div>
+        <div class="cert-body">
+          <h3>Python course by BornToDev</h3>
+          <div class="chips">
+            <span class="chip">Python Basics</span>
+            <span class="chip">OOP</span>
+            <span class="chip">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section id="closing" class="section">
+      <h2 class="section-title">Closing Statement</h2>
+      <div class="card">
+        <p>I bring a unique combination of software engineering expertise and hands-on experience in robotics, AI, and computer vision. I am eager to further my research and innovation through a Master’s degree program.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">&copy; <span id="year"></span> Your Name — Portfolio</div>
+  </footer>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Project Video">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Close video">&times;</button>
+      <div class="video-wrap">
+        <iframe id="video-iframe" src="" allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <p class="modal-fallback">If the video doesn't load, <a id="fallback-link" href="#" target="_blank" rel="noopener">open it directly</a>.</p>
+    </div>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Horizontal scroll arrows
+    document.querySelectorAll('.arrow').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-scroll');
+        const dir = Number(btn.getAttribute('data-dir'));
+        const el = document.getElementById(id);
+        if (el) el.scrollBy({ left: dir * 360, behavior: 'smooth' });
+      });
     });
-  });
-</script>
+
+    // --- Video modal with full URL parsing ---
+    function parseYouTube(url){
+      try{
+        const u = new URL(url); const host = u.hostname.replace('www.', '');
+        const list = u.searchParams.get('list');
+        if ((host.includes('youtube') || host === 'm.youtube.com') && u.pathname === '/playlist' && list) {
+          return { provider:'yt_playlist', id:list, share:`https://www.youtube.com/playlist?list=${list}` };
+        }
+        const v = u.searchParams.get('v'); if (v) return { provider:'yt', id:v, share:`https://youtu.be/${v}` };
+        if (host === 'youtu.be') { const id = u.pathname.split('/').filter(Boolean)[0]; if (id) return { provider:'yt', id, share:`https://youtu.be/${id}` }; }
+        if (host.includes('youtube') && u.pathname.startsWith('/shorts/')) { const id = u.pathname.split('/').filter(Boolean)[1]; if (id) return { provider:'yt', id, share:`https://youtu.be/${id}` }; }
+      }catch(e){} return null;
+    }
+    function parseDrive(url){
+      try{
+        const u = new URL(url); if (u.hostname.replace('www.', '') !== 'drive.google.com') return null;
+        const m = u.pathname.match(/\/d\/([^/]+)/); const id = (m && m[1]) || u.searchParams.get('id');
+        if (id) return { provider:'drive', id, share:`https://drive.google.com/file/d/${id}/view?usp=sharing` };
+      }catch(e){} return null;
+    }
+    function parseVimeo(url){
+      try{
+        const u = new URL(url); if (u.hostname.replace('www.', '') !== 'vimeo.com') return null;
+        const id = u.pathname.split('/').filter(Boolean)[0]; if (/^\d+$/.test(id)) return { provider:'vimeo', id, share:`https://vimeo.com/${id}` };
+      }catch(e){} return null;
+    }
+    function detect(url){ return parseYouTube(url) || parseDrive(url) || parseVimeo(url) || null; }
+    function embed(parsed){
+      if (!parsed) return null;
+      if (parsed.provider==='yt') return { src:`https://www.youtube.com/embed/${parsed.id}?rel=0&modestbranding=1&playsinline=1&autoplay=1`, share:parsed.share };
+      if (parsed.provider==='yt_playlist') return { src:`https://www.youtube.com/embed/videoseries?list=${parsed.id}`, share:parsed.share };
+      if (parsed.provider==='vimeo') return { src:`https://player.vimeo.com/video/${parsed.id}?autoplay=1`, share:parsed.share };
+      if (parsed.provider==='drive') return { src:`https://drive.google.com/file/d/${parsed.id}/preview`, share:parsed.share };
+      return null;
+    }
+
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-iframe');
+    const fallback = document.getElementById('fallback-link');
+
+    function openModalFromUrl(url){
+      const parsed = detect(url); const built = embed(parsed);
+      if (!built){ alert('Unsupported or invalid video URL.'); return; }
+      iframe.src = built.src; fallback.href = built.share; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+    }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); iframe.src=''; document.body.style.overflow=''; }
+
+    document.querySelectorAll('[data-video-url]').forEach(btn => { btn.addEventListener('click', () => openModalFromUrl(btn.getAttribute('data-video-url'))); });
+    modal.addEventListener('click', e => { if (e.target.matches('[data-close]') || e.target.classList.contains('modal-backdrop')) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
+  </script>
 </body>
 </html>
