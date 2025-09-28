@@ -8,3 +8,4 @@ A minimal, responsive portfolio for a Software Engineering Master's interview.
 
 ## Quick start
 Open `index.html` in a browser, or use VS Code's Live Server extension for local preview.
+"# portfolio" 
