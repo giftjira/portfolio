@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio – Software Engineer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="site-header">
+  <h1>Software Engineer Portfolio</h1>
+  <p>Master’s Degree Applicant</p>
+</header>
+
+<nav class="site-nav">
+  <a href="#personal-info">Personal Info</a>
+  <a href="#background">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#hardware">Hardware</a>
+  <a href="#projects">Projects</a>
+  <a href="#interests">Interests</a>
+  <a href="#certs">Certificates</a>
+  <a href="#closing">Closing</a>
+</nav>
+
+<main>
+  <section id="personal-info" class="card">
+    <h2>Personal Info</h2>
+    <p><strong>Name:</strong> NooHeaw</p>
+    <p><strong>Contact:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a></p>
+    <p><strong>Bio:</strong> A motivated software engineer with expertise in computer vision, robotics, and AI-driven systems.</p>
+  </section>
+
+  <section id="background" class="card">
+    <h2>Background / Education</h2>
+    <p><strong>Coursework:</strong> Software Engineering, AI/ML, Computer Vision, Robotics, IoT Systems</p>
+    <p><strong>Projects:</strong> Research and academic projects on digital measuring, robotics integration, and AI vision.</p>
+  </section>
+
+  <section id="skills" class="card">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li><strong>Programming Languages (AI Assist):</strong> Python, R, VBA, SQL, C++, JavaScript</li>
+      <li><strong>Frameworks:</strong> PyTorch, Keras, OpenCV, TensorFlow</li>
+      <li><strong>Tools:</strong> Git, Colab, Visual Studio, PLC systems</li>
+      <li><strong>Database:</strong> Microsoft SQL Server</li>
+    </ul>
+  </section>
+
+  <section id="hardware" class="card">
+    <h2>Hardware &amp; Systems</h2>
+    <ul>
+      <li>Digital Measuring Tool</li>
+      <li>Digital Microscope (Nikon VR500e)</li>
+      <li>Handheld / Touchscreen Devices</li>
+      <li>USB Camera</li>
+      <li>Robotics (AMR &amp; System Integration)</li>
+      <li>Embedded Systems (Tinkerboard with Linux OS)</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="card">
+    <h2>Professional / Project Experience (GitHub Demo)</h2>
+    <ul>
+      <li><strong>Digital QC Measuring:</strong> Automated measurement pipeline [<a href="https://github.com/yourrepo" target="_blank" rel="noopener">GitHub Demo</a>]</li>
+      <li><strong>AMR Robotics:</strong> AMR navigation &amp; integration [<a href="https://github.com/yourrepo" target="_blank" rel="noopener">GitHub Demo</a>]</li>
+      <li><strong>AI Vision:</strong> CV system with PyTorch &amp; OpenCV [<a href="https://github.com/yourrepo" target="_blank" rel="noopener">GitHub Demo</a>]</li>
+    </ul>
+  </section>
+
+  <section id="interests" class="card">
+    <h2>Personal Interests</h2>
+    <ul>
+      <li>AI Integration App</li>
+      <li>Game</li>
+      <li>Mobile App</li>
+    </ul>
+  </section>
+
+  <section id="certs" class="card">
+    <h2>Certificates &amp; Achievements</h2>
+    <p>[List of certifications, awards, scholarships]</p>
+  </section>
+
+  <section id="closing" class="card">
+    <h2>Closing Statement</h2>
+    <p>I bring a unique combination of software engineering expertise and hands-on experience in robotics, AI, and computer vision. I am eager to further my research and innovation through a Master’s degree program.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2025 Your Name | Portfolio</p>
+</footer>
+
+<script>
+  // Optional: smooth scroll for in-page nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({behavior: 'smooth'});
+      }
+    });
+  });
+</script>
+</body>
+</html>
