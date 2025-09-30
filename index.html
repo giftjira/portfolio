@@ -45,7 +45,6 @@
     <!-- BACKGROUND / EDUCATION (Vertical Timeline) -->
     <section id="background" class="section">
       <h2 class="section-title">Background / Education</h2>
-
       <div class="timeline">
         <!-- Education -->
         <article class="t-item card">
@@ -54,7 +53,7 @@
             <img class="t-thumb" src="assets/timeline/education.png" alt="Education">
             <div>
               <h3>Education</h3>
-              <div class="t-meta">Start – End (2016 – 2019)</div>
+              <div class="t-meta">2016 – 2019</div>
             </div>
           </div>
           <div class="t-body">
@@ -135,35 +134,23 @@
           </div>
         </article>
 
-        <!-- Coursework sub-topic -->
-        <article class="t-item card">
-          <div class="t-marker"></div>
-          <div class="t-header">
-            <img class="t-thumb" src="assets/timeline/coursework.jpg" alt="Coursework">
-            <div>
-              <h3>Coursework</h3>
-              <div class="t-meta">(As previous info)</div>
-            </div>
-          </div>
-          <div class="t-body">
-            <p>List your coursework or a short description here.</p>
-          </div>
-        </article>
+      </div>
+    </section>
 
-        <!-- Project sub-topic -->
-        <article class="t-item card">
-          <div class="t-marker"></div>
-          <div class="t-header">
-            <img class="t-thumb" src="assets/timeline/projects.jpg" alt="Project">
-            <div>
-              <h3>Project</h3>
-              <div class="t-meta">(As previous info)</div>
-            </div>
-          </div>
-          <div class="t-body">
-            <p>Briefly describe your notable academic project(s) here.</p>
-          </div>
-        </article>
+    <!-- COURSEWORK & PROJECT (moved out of timeline) -->
+    <section id="coursework-projects" class="section">
+      <h2 class="section-title">Coursework & Academic Projects</h2>
+      <div class="hscroll">
+        <div class="card pill">
+          <img class="t-thumb" src="assets/timeline/coursework.jpg" alt="Coursework">
+          <h3>Coursework</h3>
+          <p>List your coursework or a short description here.</p>
+        </div>
+        <div class="card pill">
+          <img class="t-thumb" src="assets/timeline/projects.jpg" alt="Projects">
+          <h3>Project</h3>
+          <p>Briefly describe your notable academic project(s) here.</p>
+        </div>
       </div>
     </section>
 
@@ -274,7 +261,7 @@
         <div class="project-head">
           <h3>Digital QC Measuring</h3>
           <div class="links">
-            <a class="link" href="https://github.com/yourrepo-digital-qc" target="_blank" rel="noopener">GitHub Demo</a>
+            <a class="link" href="https://github.com/yourrepo-digital-qc" target="_blank">GitHub Demo</a>
             <button class="btn btn-solid btn-sm" data-video-url="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1">Watch Project Video</button>
           </div>
         </div>
@@ -295,8 +282,10 @@
         <div class="project-head">
           <h3>AMR Robotics</h3>
           <div class="links">
-            <a class="link" href="https://github.com/yourrepo-amr" target="_blank" rel="noopener">GitHub Demo</a>
-            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/YOUR_VIDEO_ID_2">Watch Project Video</button>
+            <a class="link" href="https://github.com/yourrepo-amr" target="_blank">GitHub Demo</a>
+            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/YOUR_VIDEO_ID_2">Watch Project Video 1</button>
+            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/YOUR_VIDEO_ID_3">Watch Project Video 2</button>
+            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/YOUR_VIDEO_ID_4">Watch Project Video 3</button>
           </div>
         </div>
         <div class="gallery">
@@ -347,14 +336,36 @@
     <!-- CERTIFICATES -->
     <section id="certs" class="section">
       <h2 class="section-title">Certificates & Achievements</h2>
-      <div class="card cert">
-        <div class="cert-media"><img src="assets/certs/borntodev-python.jpg" alt="Python course by BornToDev"></div>
-        <div class="cert-body">
-          <h3>Python course by BornToDev</h3>
-          <div class="chips">
-            <span class="chip">Python Basics</span>
-            <span class="chip">OOP</span>
-            <span class="chip">Problem Solving</span>
+      <div class="hscroll">
+        <div class="card pill cert">
+          <div class="cert-media"><img src="assets/certs/borntodev-python.jpg" alt="Python course by BornToDev"></div>
+          <div class="cert-body">
+            <h3>Python course by BornToDev</h3>
+            <div class="chips">
+              <span class="chip">Python Basics</span>
+              <span class="chip">OOP</span>
+              <span class="chip">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+        <div class="card pill cert">
+          <div class="cert-media"><img src="assets/certs/second-cert.jpg" alt="Second Certificate"></div>
+          <div class="cert-body">
+            <h3>Second Certificate Title</h3>
+            <div class="chips">
+              <span class="chip">Skill 1</span>
+              <span class="chip">Skill 2</span>
+            </div>
+          </div>
+        </div>
+        <div class="card pill cert">
+          <div class="cert-media"><img src="assets/certs/third-cert.jpg" alt="Third Certificate"></div>
+          <div class="cert-body">
+            <h3>Third Certificate Title</h3>
+            <div class="chips">
+              <span class="chip">Skill A</span>
+              <span class="chip">Skill B</span>
+            </div>
           </div>
         </div>
       </div>
