@@ -21,15 +21,18 @@
         <a href="#projects">Projects</a>
         <a href="#interests">Interests</a>
         <a href="#certs">Certificates</a>
-        <a href="#closing">Closing</a>
       </nav>
+      <div class="qr">
+        <img src="assets/qr.png" alt="QR code to portfolio">
+        <p>Scan to open this portfolio</p>
+      </div>
     </div>
   </header>
 
   <main class="container">
     <!-- PERSONAL INFO -->
     <section id="personal-info" class="section">
-      <h2 class="section-title">Personal Info</h2>
+      <h2 class="section-title">Personal Information</h2>
       <div class="card">
         <div class="grid two">
           <div>
@@ -37,9 +40,11 @@
             <p><strong>Contact:</strong> <a href="mailto:thunyasiri.jir@gmail.com">thunyasiri.jir@gmail.com</a></p>
             <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/thunyasiri-jirachaiyapunt-546162200/" target="_blank" rel="noopener">https://www.linkedin.com/in/thunyasiri-jirachaiyapunt-546162200/</a></p>
           </div>
-          <p><strong>Bio:</strong> A motivated software engineer with expertise in computer vision, robotics, and AI-driven systems.</p>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <img src="assets/profile.jpg" alt="Profile picture" class="profile-pic" loading="lazy">
+            <p><strong>Bio:</strong> A motivated software engineer with expertise in computer vision, robotics, and AI-driven systems.</p>
+          </div>
         </div>
-      </div>
     </section>
 
     <!-- BACKGROUND / EDUCATION (Vertical Timeline) -->
@@ -142,12 +147,12 @@
       <h2 class="section-title">Coursework & Academic Projects</h2>
       <div class="hscroll">
         <div class="card pill">
-          <img class="t-thumb" src="assets/timeline/coursework.jpg" alt="Coursework">
+          <img class="t-thumb" src="assets/timeline/coursework.jpg" alt="Coursework" loading="lazy">
           <h3>Coursework</h3>
           <p>List your coursework or a short description here.</p>
         </div>
         <div class="card pill">
-          <img class="t-thumb" src="assets/timeline/projects.jpg" alt="Projects">
+          <img class="t-thumb" src="assets/timeline/projects.jpg" alt="Projects" loading="lazy">
           <h3>Project</h3>
           <p>Briefly describe your notable academic project(s) here.</p>
         </div>
@@ -223,35 +228,33 @@
       </div>
       <div class="hscroll" id="hw">
         <div class="card pill">
-          <div class="img-cover"><img src="assets/hw/V.jpg" alt="Vernier"></div>
-          <div class="img-cover"><img src="assets/hw/MM.jpg" alt="Micrometer"></div>
-          <div class="img-cover"><img src="assets/hw/HG.jpg" alt="Height Gauge"></div>
-          <div class="img-cover"><img src="assets/hw/DG.jpg" alt="Dial Gauge"></div>
-          <div class="img-cover"><img src="assets/hw/SC.jpg" alt="QR Scanner"></div>
+          <div class="img--contain"><img src="assets/hw/measuringtool.png" alt="Measuring Tools"></div>
+          <div class="img--contain"><img src="assets/hw/SC.jpg" alt="QR Scanner"></div>
           <h3>Digital Measuring Tool & QR Scanner</h3>
         </div>
         <div class="card pill">
-          <div class="img-cover"><img src="assets/hw/microscope-nikon.png" alt="Digital Microscope (Nikon)"></div>
-          <div class="img-cover"><img src="assets/hw/microscope-vr5000.jpg" alt="Digital Microscope (VR5000)"></div>
+          <div class="img--contain"><img src="assets/hw/microscope-nikon.png" alt="Digital Microscope (Nikon)"></div>
+          <div class="img--contain"><img src="assets/hw/microscope-vr5000.jpg" alt="Digital Microscope (VR5000)"></div>
           <h3>Advance Digital Microscopes (Nikon, VR5000)</h3>
+          <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/mpwLhCenup0">Watch Video</button>
         </div>
         <div class="card pill">
-          <div class="img-cover"><img src="assets/hw/amr.jpg" alt="AMR Robots"></div>
-          <div class="img-cover"><img src="assets/hw/amr-charger.jpg" alt="AMR Chargers"></div>
+          <div class="img--contain"><img src="assets/hw/amr.jpg" alt="AMR Robots"></div>
+          <div class="img--contain"><img src="assets/hw/amr-charger.jpg" alt="AMR Chargers"></div>
           <h3>AMR Robots & Chargers</h3>
         </div>
         <div class="card pill">
-          <div class="img-cover"><img src="assets/hw/handheld.png" alt="Handheld Devices"></div>
-          <div class="img-cover"><img src="assets/hw/panelPC.png" alt="Panel PC"></div>
+          <div class="img--contain"><img src="assets/hw/handheld.png" alt="Handheld Devices"></div>
+          <div class="img--contain"><img src="assets/hw/panelPC.png" alt="Panel PC"></div>
           <h3>Handheld Devices / Panel PC</h3>
         </div>
         <div class="card pill">
-          <div class="img-cover"><img src="assets/hw/usb-camera.png" alt="USB Camera"></div>
+          <div class="img--contain"><img src="assets/hw/usb-camera.png" alt="USB Camera"></div>
           <h3>USB Camera</h3>
         </div>
         <div class="card pill">
-          <div class="img-cover"><img src="assets/hw/tinkerboard2s.png" alt="Tinkerboard 2s"></div>
-          <div class="img-cover"><img src="assets/hw/tinkerboardER.png" alt="Tinkerboard Edge R"></div>
+          <div class="img--contain"><img src="assets/hw/tinkerboard2s.png" alt="Tinkerboard 2s"></div>
+          <div class="img--contain"><img src="assets/hw/tinkerboardER.png" alt="Tinkerboard Edge R"></div>
           <h3>Embedded Systems (Tinkerboards with Linux OS)</h3>
         </div>
       </div>
@@ -267,8 +270,8 @@
         <div class="project-head">
           <h3>Digital QC Measuring</h3>
           <div class="links">
-            <a class="link" href="https://github.com/giftjira/DigitalQCMeasuring" target="_blank">GitHub Demo</a>
-            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/QenrK4YogSw">Watch Project Video</button>
+            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/QenrK4YogSw">Project Video</button>
+            <a class="link" href="https://github.com/giftjira/DigitalQCMeasuring" target="_blank">GitHub Repository</a>
           </div>
         </div>
         <div class="gallery">
@@ -286,16 +289,29 @@
           <li><strong>Tool:</strong> AI Assist Coding, Excel Developer Tool</li>
           <li><strong>Environment:</strong> Advanced measuring tool, Windows OS</li>
         </ul>
+        <div class="see-more">
+          <button class="btn btn-ghost btn-sm" onclick="toggleDetails(this)">See More</button>
+          <div class="more-content">
+            <div class="pair">
+              <img src="assets/projects/amr-detail1.jpg" alt="AMR detail 1" loading="lazy">
+              <p>Explain step/feature/result #1 with a concise description.</p>
+            </div>
+            <div class="pair">
+              <img src="assets/projects/amr-detail2.jpg" alt="AMR detail 2" loading="lazy">
+              <p>Explain step/feature/result #2…</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="project card">
         <div class="project-head">
           <h3>AMR Robotics</h3>
           <div class="links">
-            <a class="link" href="https://github.com/yourrepo-amr" target="_blank">GitHub Demo</a>
-            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/C8tiy2liTwA">Watch Project Video 1</button>
-            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/KnyDhaKUvyY">Watch Project Video 2</button>
-            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/YOUR_VIDEO_ID_4">Watch Project Video 3</button>
+            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/C8tiy2liTwA">AMR Part Video</button>
+            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/KnyDhaKUvyY">AMR Motor Video</button>
+            <button class="btn btn-solid btn-sm" data-video-url="https://youtu.be/GujNX_t9neg">AMR Packing Video</button>
+            <a class="link" href="https://github.com/yourrepo-amr" target="_blank">GitHub Repository</a>
           </div>
         </div>
         <div class="gallery">
@@ -310,14 +326,27 @@
           <li><strong>Tool:</strong> AI Assist Coding, VS Code, Postman, RCS, Walle, MySQL</li>
           <li><strong>Environment:</strong> Web Application, IoT, Robotics (AMR)</li>
         </ul>
+        <div class="see-more">
+          <button class="btn btn-ghost btn-sm" onclick="toggleDetails(this)">See More</button>
+          <div class="more-content">
+            <div class="pair">
+              <img src="assets/projects/amr-detail1.jpg" alt="AMR detail 1" loading="lazy">
+              <p>Explain step/feature/result #1 with a concise description.</p>
+            </div>
+            <div class="pair">
+              <img src="assets/projects/amr-detail2.jpg" alt="AMR detail 2" loading="lazy">
+              <p>Explain step/feature/result #2…</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="project card">
         <div class="project-head">
           <h3>AI Vision</h3>
           <div class="links">
-            <a class="link" href="https://github.com/yourrepo-ai-vision" target="_blank" rel="noopener">GitHub Demo</a>
-            <button class="btn btn-solid btn-sm" data-video-url="https://drive.google.com/file/d/DRIVE_FILE_ID/view?usp=sharing">Watch Project Video</button>
+            <button class="btn btn-solid btn-sm" data-video-url="https://drive.google.com/file/d/DRIVE_FILE_ID/view?usp=sharing">Project Video</button>
+            <a class="link" href="https://github.com/yourrepo-ai-vision" target="_blank" rel="noopener">GitHub Repository</a>
           </div>
         </div>
         <div class="gallery">
@@ -331,6 +360,19 @@
           <li><strong>Tool:</strong> AI Assist Coding, VS Code</li>
           <li><strong>Environment:</strong> Linux OS, Computer Vision, IoT</li>
         </ul>
+        <div class="see-more">
+          <button class="btn btn-ghost btn-sm" onclick="toggleDetails(this)">See More</button>
+          <div class="more-content">
+            <div class="pair">
+              <img src="assets/projects/amr-detail1.jpg" alt="AMR detail 1" loading="lazy">
+              <p>Explain step/feature/result #1 with a concise description.</p>
+            </div>
+            <div class="pair">
+              <img src="assets/projects/amr-detail2.jpg" alt="AMR detail 2" loading="lazy">
+              <p>Explain step/feature/result #2…</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -382,7 +424,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">&copy; <span id="year"></span> Your Name — Portfolio</div>
+    <div class="container">&copy; <span id="year"></span> Thunyasiri Jirachaiyapunt — Portfolio</div>
   </footer>
 
   <!-- Video Modal -->
@@ -461,6 +503,17 @@
     document.querySelectorAll('[data-video-url]').forEach(btn => { btn.addEventListener('click', () => openModalFromUrl(btn.getAttribute('data-video-url'))); });
     modal.addEventListener('click', e => { if (e.target.matches('[data-close]') || e.target.classList.contains('modal-backdrop')) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
+    function toggleDetails(btn){
+      const content = btn.parentElement.querySelector('.more-content');
+      content.classList.toggle('open');
+      btn.textContent = content.classList.contains('open') ? 'See Less' : 'See More';
+    }
+  </script>
+  <script>
+  document.querySelectorAll('img.lazy').forEach(img => {
+    img.addEventListener('load', () => img.classList.add('loaded'));
+    if (img.complete) img.classList.add('loaded');
+  });
   </script>
 </body>
 </html>

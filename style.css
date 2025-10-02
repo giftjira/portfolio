@@ -29,7 +29,7 @@ body{
 .link:hover{text-decoration:underline}
 .card{background:var(--card);border:1px solid var(--cardBorder);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
 .card h3{margin:0 0 8px 0}
-.card.pill{min-width:280px;max-width:320px;scroll-snap-align:start}
+.card.pill{min-width:420px;max-width:480px;scroll-snap-align:start}
 .grid.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media (max-width: 860px){.grid.two{grid-template-columns:1fr}}
 .hscroll{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;scrollbar-width:thin}
@@ -47,7 +47,7 @@ body{
 .project{margin:18px 0}
 .project-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
 .links{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.gallery{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;margin-bottom:10px}
+.gallery{display:flex;gap:15px;overflow-x:auto;scrollbar-width:thin;margin-bottom:10px}
 .gallery img{width:240px;height:150px;border-radius:12px;object-fit:cover;border:1px solid var(--cardBorder)}
 .kv{list-style:none;padding:0;margin:0}
 .kv li{margin:.25rem 0;color:var(--text)}
@@ -73,8 +73,45 @@ body{
 
 /* Certificates */
 .cert{display:flex;gap:14px;align-items:center}
-.cert-media img{width:120px;height:80px;object-fit:cover;border-radius:10px;border:1px solid var(--cardBorder)}
+.cert-media img{width:240px;height:160px;object-fit:cover;border-radius:10px;border:1px solid var(--cardBorder)}
 .cert-body h3{margin:0 0 6px 0}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .chip{border:1px solid var(--cardBorder);padding:6px 10px;border-radius:999px;font-size:.85rem;color:var(--text)}
-@media (max-width:700px){.cert{flex-direction:column;align-items:flex-start}.cert-media img{width:100%;height:auto}}
+@media (max-width:1600px){.cert{flex-direction:column;align-items:flex-start}.cert-media img{width:100%;height:auto}}
+
+/* Make galleries/timeline/hardware images consistent + responsive */
+img { max-width: 100%; height: auto; }
+
+.gallery img,
+.img-cover img,
+.t-thumb {
+  object-fit: cover;     /* keep fill without distortion */
+  background: #000;      /* fill around */
+}
+
+/* Optional: fixed gallery height for uniform row */
+.gallery img { width: 100%; height: 320px; }
+
+/* Allow per-image override */
+.img--contain { border-radius:12px; margin-bottom:10px; object-fit: contain !important; background:#111; }
+.img--tall    { height: 220px !important; }
+.img--wide    { width: 320px !important; }
+
+/* Lazy loading fade-in (optional) */
+.lazy { opacity: 0; transition: opacity .25s ease; }
+.lazy.loaded { opacity: 1; }
+
+.profile-pic{
+  width:240px; height:240px; border-radius:10%;
+  object-fit:cover; border:3px solid var(--brand);
+  box-shadow: var(--shadow);
+}
+
+.qr { margin-top:12px; display:flex; align-items:center; gap:12px; color:var(--muted); }
+.qr img{ width:150px; height:150px; border:1px solid var(--cardBorder); border-radius:12px; }
+
+.more-content { display:none; margin-top:10px; }
+.more-content.open { display:block; }
+.pair { display:flex; gap:10px; margin-bottom:10px; align-items:center; }
+.pair img { width:120px; height:80px; object-fit:cover; border-radius:8px; border:1px solid var(--cardBorder); }
+
