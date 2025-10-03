@@ -73,7 +73,7 @@ body{
 
 /* Certificates */
 .cert{display:flex;gap:14px;align-items:center}
-.cert-media img{width:240px;height:160px;object-fit:cover;border-radius:10px;border:1px solid var(--cardBorder)}
+.cert-media img{width:100%;height:160px;object-fit:cover;border-radius:10px;border:1px solid var(--cardBorder)}
 .cert-body h3{margin:0 0 6px 0}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .chip{border:1px solid var(--cardBorder);padding:6px 10px;border-radius:999px;font-size:.85rem;color:var(--text)}
@@ -112,6 +112,6 @@ img { max-width: 100%; height: auto; }
 
 .more-content { display:none; margin-top:10px; }
 .more-content.open { display:block; }
-.pair { display:flex; gap:10px; margin-bottom:10px; align-items:center; }
-.pair img { width:120px; height:80px; object-fit:cover; border-radius:8px; border:1px solid var(--cardBorder); }
+.pair { display:flex; gap:16px; margin-bottom:20px; align-items:center; }
+.pair img { width: 600px; height: 100%; object-fit:cover; border-radius:8px; border:1px solid var(--cardBorder); }
 
