@@ -502,15 +502,63 @@
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Horizontal scroll arrows
-    document.querySelectorAll('.arrow').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-scroll');
-        const dir = Number(btn.getAttribute('data-dir'));
-        const el = document.getElementById(id);
-        if (el) el.scrollBy({ left: dir * 360, behavior: 'smooth' });
-      });
+    // Make rails draggable (mouse only), and keep touch fully native for smoothness
+    document.querySelectorAll('.hscroll.grabbable').forEach((rail) => {
+      // If device is touch-first, rely on native scrolling (momentum is best)
+      const isCoarse = window.matchMedia('(pointer:coarse)').matches;
+      if (isCoarse) {
+        // Ensure images don’t start a browser drag
+        rail.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
+        return; // No custom handlers on touch devices
+      }
+
+      // Desktop: pointer-based drag with direction lock
+      let isDown = false, startX = 0, startScroll = 0, lockedAxis = null;
+
+      const onPointerDown = (e) => {
+        if (e.button !== 0) return; // left click only
+        isDown = true;
+        lockedAxis = null; // reset lock
+        startX = e.clientX;
+        startScroll = rail.scrollLeft;
+        rail.classList.add('dragging');
+        rail.setPointerCapture?.(e.pointerId);
+      };
+
+      const onPointerMove = (e) => {
+        if (!isDown) return;
+
+        const dx = e.clientX - startX;
+        const dy = (e.movementY ?? 0);
+
+        // Direction lock after a tiny threshold
+        if (!lockedAxis) {
+          if (Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy)) lockedAxis = 'x';
+          else if (Math.abs(dy) > 6 && Math.abs(dy) > Math.abs(dx)) lockedAxis = 'y';
+        }
+
+        if (lockedAxis === 'x') {
+          // Only prevent default when we’re definitely horizontal-dragging
+          e.preventDefault();
+          rail.scrollLeft = startScroll - dx;
+        }
+      };
+
+      const onPointerUp = (e) => {
+        isDown = false;
+        lockedAxis = null;
+        rail.classList.remove('dragging');
+        rail.releasePointerCapture?.(e.pointerId);
+      };
+
+      rail.addEventListener('pointerdown', onPointerDown, { passive: true });
+      rail.addEventListener('pointermove',  onPointerMove,  { passive: false });
+      window.addEventListener('pointerup',  onPointerUp,    { passive: true });
+
+      // Images shouldn’t start an OS drag
+      rail.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
     });
+
 
     // Make rails draggable (mouse/touch)
     document.querySelectorAll('.hscroll.grabbable').forEach((rail) => {
