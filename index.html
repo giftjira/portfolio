@@ -502,74 +502,90 @@
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Make rails draggable (mouse only), and keep touch fully native for smoothness
-    document.querySelectorAll('.hscroll.grabbable').forEach((rail) => {
-      // If device is touch-first, rely on native scrolling (momentum is best)
-      const isCoarse = window.matchMedia('(pointer:coarse)').matches;
-      if (isCoarse) {
-        // Ensure images don’t start a browser drag
-        rail.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
-        return; // No custom handlers on touch devices
-      }
+    // ----- Horizontal rails: arrows -> temporary snap; finger/mouse drag -> no snap -----
+    (function(){
+      const SNAP_TIMEOUT = 450;      // ms to keep snap after arrow click
+      const ARROW_STEP = 360;        // px to scroll per click
+      const H_INTENT_EPS = 6;        // horizontal intent threshold in px
 
-      // Desktop: pointer-based drag with direction lock
-      let isDown = false, startX = 0, startScroll = 0, lockedAxis = null;
+      // 1) Arrow buttons: programmatic scroll + temporary snap
+      document.querySelectorAll('.arrow').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-scroll');
+          const dir = Number(btn.getAttribute('data-dir'));
+          const rail = document.getElementById(id);
+          if (!rail) return;
 
-      const onPointerDown = (e) => {
-        if (e.button !== 0) return; // left click only
-        isDown = true;
-        lockedAxis = null; // reset lock
-        startX = e.clientX;
-        startScroll = rail.scrollLeft;
-        rail.classList.add('dragging');
-        rail.setPointerCapture?.(e.pointerId);
-      };
+          // enable snap briefly so items land neatly, then remove
+          rail.classList.add('snap');
+          rail.scrollBy({ left: dir * ARROW_STEP, behavior: 'smooth' });
+          clearTimeout(rail._snapTimer);
+          rail._snapTimer = setTimeout(() => rail.classList.remove('snap'), SNAP_TIMEOUT);
+        });
+      });
 
-      const onPointerMove = (e) => {
-        if (!isDown) return;
+      // 2) Pointer/touch drag: allow vertical page scroll unless horizontal intent is clear
+      document.querySelectorAll('.hscroll.grabbable').forEach((rail) => {
+        let isDown = false, startX = 0, startY = 0, scrollLeft = 0, hadHorizontalIntent = false;
 
-        const dx = e.clientX - startX;
-        const dy = (e.movementY ?? 0);
+        // Helper: start drag (mouse & touch)
+        const start = (e) => {
+          // Don’t treat image lightbox taps as drags
+          if (e.target && e.target.closest('[data-lightbox]')) return;
 
-        // Direction lock after a tiny threshold
-        if (!lockedAxis) {
-          if (Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy)) lockedAxis = 'x';
-          else if (Math.abs(dy) > 6 && Math.abs(dy) > Math.abs(dx)) lockedAxis = 'y';
-        }
+          isDown = true;
+          hadHorizontalIntent = false;
+          rail.classList.add('dragging');
+          const pageX = (e.touches ? e.touches[0].pageX : e.pageX);
+          const pageY = (e.touches ? e.touches[0].pageY : e.pageY);
+          startX = pageX;
+          startY = pageY;
+          scrollLeft = rail.scrollLeft;
+        };
 
-        if (lockedAxis === 'x') {
-          // Only prevent default when we’re definitely horizontal-dragging
-          e.preventDefault();
-          rail.scrollLeft = startScroll - dx;
-        }
-      };
+        const move = (e) => {
+          if (!isDown) return;
 
-      const onPointerUp = (e) => {
-        isDown = false;
-        lockedAxis = null;
-        rail.classList.remove('dragging');
-        rail.releasePointerCapture?.(e.pointerId);
-      };
+          const pageX = (e.touches ? e.touches[0].pageX : e.pageX);
+          const pageY = (e.touches ? e.touches[0].pageY : e.pageY);
+          const dx = pageX - startX;
+          const dy = pageY - startY;
 
-      rail.addEventListener('pointerdown', onPointerDown, { passive: true });
-      rail.addEventListener('pointermove',  onPointerMove,  { passive: false });
-      window.addEventListener('pointerup',  onPointerUp,    { passive: true });
+          // Determine intent: only block vertical scrolling if horizontal dominates
+          if (!hadHorizontalIntent) {
+            if (Math.abs(dx) > Math.abs(dy) + H_INTENT_EPS) {
+              hadHorizontalIntent = true;
+            } else {
+              // Let the page scroll vertically; do NOT preventDefault
+              return;
+            }
+          }
 
-      // Images shouldn’t start an OS drag
-      rail.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
-    });
+          // At this point we have horizontal intent -> prevent vertically bouncing the page
+          e.preventDefault(); // IMPORTANT: only after we’re sure it’s horizontal
+          rail.scrollLeft = scrollLeft - dx;
+        };
 
+        const end = () => {
+          isDown = false;
+          rail.classList.remove('dragging');
+        };
 
-    // Make rails draggable (mouse/touch)
-    document.querySelectorAll('.hscroll.grabbable').forEach((rail) => {
-      let isDown=false,startX,scrollLeft;
-      const start = (e)=>{ isDown=true; rail.classList.add('dragging'); startX=(e.pageX||e.touches[0].pageX)-rail.offsetLeft; scrollLeft=rail.scrollLeft; };
-      const move = (e)=>{ if(!isDown) return; e.preventDefault(); const x=(e.pageX||e.touches[0].pageX)-rail.offsetLeft; const walk=(x-startX)*1; rail.scrollLeft=scrollLeft-walk; };
-      const end = ()=>{ isDown=false; rail.classList.remove('dragging'); };
-      rail.addEventListener('mousedown', start); rail.addEventListener('touchstart', start, {passive:true});
-      window.addEventListener('mousemove', move, {passive:false}); window.addEventListener('touchmove', move, {passive:false});
-      window.addEventListener('mouseup', end); window.addEventListener('touchend', end);
-    });
+        // Mouse
+        rail.addEventListener('mousedown', start);
+        window.addEventListener('mousemove', move, { passive: false });
+        window.addEventListener('mouseup', end);
+
+        // Touch (passive on start/end; non-passive on move so we MAY preventDefault)
+        rail.addEventListener('touchstart', start, { passive: true });
+        window.addEventListener('touchmove', move, { passive: false });
+        window.addEventListener('touchend', end, { passive: true });
+
+        // Make sure snap is off during manual drags
+        rail.addEventListener('pointerdown', () => rail.classList.remove('snap'));
+        rail.addEventListener('touchstart', () => rail.classList.remove('snap'), { passive: true });
+      });
+    })();
 
     // --- Video modal + lightbox (images) with full URL parsing ---
     function parseYouTube(url){

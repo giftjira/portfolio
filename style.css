@@ -54,12 +54,25 @@ body{
 .card{background:var(--card);border:1px solid var(--cardBorder);border-radius:18px;padding:18px;box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
 .card:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.28)}
 .card h3{margin:0 0 8px 0}
-.card.pill{min-width:420px;max-width:480px;scroll-snap-align:start}
+.card.pill{ min-width:420px; max-width:480px; /* keep align but only effective when .snap is on */ }
+.hscroll.snap .card.pill{ scroll-snap-align:start; }
 .grid.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (pointer: coarse){
+  .hscroll.grabbable{ cursor:auto; }
+}
 @media (max-width: 860px){.grid.two{grid-template-columns:1fr}}
 
 /* ------------------ Horizontal scroll rails ------------------ */
-.hscroll{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.hscroll{
+  display:flex; gap:14px; overflow-x:auto; padding-bottom:6px;
+  /* default: NO snap so it feels smooth while swiping */
+  scroll-snap-type: none;
+  scrollbar-width:thin; -webkit-overflow-scrolling:touch;
+}
+.hscroll.snap{
+  /* only used when user clicks arrows */
+  scroll-snap-type: x mandatory;
+}
 .hscroll.grabbable{cursor:grab}
 .hscroll.grabbable:active{cursor:grabbing}
 .arrows{display:flex;gap:6px}
@@ -175,19 +188,4 @@ img { max-width: 100%; height: auto; }
 @media (prefers-reduced-motion: reduce){
   .site-header{ transition: none !important; }
   .site-header.hide{ transform: none !important; }
-}
-
-/* Make rails play nicely with touch & momentum */
-.hscroll{
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-inline: contain; /* prevents page from being pulled sideways */
-  scroll-snap-type: x proximity;       /* softer snap than 'mandatory' */
-  touch-action: pan-x pan-y;           /* allow both; JS will direction-lock */
-}
-
-/* Images shouldn’t start a drag-ghost */
-.hscroll img, .gallery img{
-  user-select: none;
-  -webkit-user-drag: none;
-  touch-action: pan-y; /* vertical pans should pass through on images */
 }
