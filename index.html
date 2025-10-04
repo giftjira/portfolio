@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,14 @@
 </head>
 <body>
   <header class="site-header">
+    <div class="progressbar" id="progressbar" aria-hidden="true"></div>
     <div class="container header-inner">
       <div class="brand">
         <h1>Software Engineer Portfolio</h1>
         <p>Master’s Degree Applicant • Computer Vision • Robotics • Web</p>
       </div>
-      <nav class="topnav">
+
+      <nav class="topnav" aria-label="Primary">
         <a href="#personal-info">Personal</a>
         <a href="#background">Background</a>
         <a href="#skills">Skills</a>
@@ -22,9 +24,14 @@
         <a href="#interests">Interests</a>
         <a href="#certs">Certificates</a>
       </nav>
-      <div class="qr">
-        <img src="assets/qr.png" alt="QR code to portfolio">
-        <p>Scan to open this portfolio</p>
+
+      <!-- New: header actions (theme toggle) -->
+      <div class="header-actions">
+        <button id="themeToggle" class="btn btn-ghost btn-sm" aria-pressed="false" aria-label="Toggle theme">🌙</button>
+        <div class="qr">
+          <img src="assets/qr.png" alt="QR code to portfolio">
+          <p>Scan to open this portfolio</p>
+        </div>
       </div>
     </div>
   </header>
@@ -45,6 +52,7 @@
             <p><strong>Bio:</strong> An engineer determined to transition into software, driven by passion for computer vision, robotics, and intelligent systems. Pursuing a Master’s in Software Engineering is my next step to grow, innovate, and reshape my career around meaningful software solutions.</p>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- BACKGROUND / EDUCATION (Vertical Timeline) -->
@@ -138,11 +146,10 @@
       </div>
     </section>
 
-
-    <!-- COURSEWORK & PROJECT (moved out of timeline) -->
+    <!-- COURSEWORK & PROJECT (moved out of timeline) 
     <section id="coursework-projects" class="section">
       <h2 class="section-title">Coursework & Projects</h2>
-      <div class="hscroll">
+      <div class="hscroll grabbable">
         <div class="card pill">
           <img class="t-thumb" src="assets/timeline/coursework.jpg" alt="Coursework" loading="lazy">
           <h3>Coursework</h3>
@@ -164,18 +171,18 @@
           <p>Briefly describe your notable academic project(s) here.</p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- TECHNICAL SKILLS -->
     <section id="skills" class="section">
-      <div class="section-head">
+      <div class="section-head" style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
         <h2 class="section-title">Software Skills</h2>
         <div class="arrows">
           <button class="arrow" data-scroll="skills" data-dir="-1" aria-label="Scroll left">&#10094;</button>
           <button class="arrow" data-scroll="skills" data-dir="1" aria-label="Scroll right">&#10095;</button>
         </div>
       </div>
-      <div class="hscroll" id="skills">
+      <div class="hscroll grabbable" id="skills">
         <div class="card pill">
           <h3>Programming Languages (AI Assist)</h3>
           <div class="icons-grid">
@@ -201,7 +208,7 @@
             <figure><img src="assets/icons/api.png" alt="API"><figcaption>API</figcaption></figure>
             <figure><img src="assets/icons/nodejs.png" alt="NodeJS"><figcaption>NodeJS</figcaption></figure>
             <figure><img src="assets/icons/expressjs.png" alt="ExpressJS"><figcaption>ExpressJS</figcaption></figure>
-        </div>
+          </div>
         </div>
         <div class="card pill">
           <h3>Tools</h3>
@@ -218,21 +225,20 @@
             <figure><img src="assets/icons/walle.jpg" alt="Walle"><figcaption>Walle</figcaption></figure>
             <figure><img src="assets/icons/mysql.png" alt="MySQL"><figcaption>MySQL</figcaption></figure>
           </div>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- HARDWARE & SYSTEMS -->
     <section id="hardware" class="section">
-      <div class="section-head">
+      <div class="section-head" style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
         <h2 class="section-title">Hardware & Systems Skills</h2>
         <div class="arrows">
           <button class="arrow" data-scroll="hw" data-dir="-1" aria-label="Scroll left">&#10094;</button>
           <button class="arrow" data-scroll="hw" data-dir="1" aria-label="Scroll right">&#10095;</button>
         </div>
       </div>
-      <div class="hscroll" id="hw">
+      <div class="hscroll grabbable" id="hw">
         <div class="card pill">
           <div class="img--contain"><img src="assets/hw/measuringtool.png" alt="Measuring Tools"></div>
           <h3>Digital Measuring Tool & QR Scanner</h3>
@@ -280,13 +286,10 @@
           </div>
         </div>
         <div class="gallery">
-          <img src="assets/projects/inspector-pc.jpg" alt="QC 1">
-          <img src="assets/projects/public-pc-1.jpg" alt="QC 2">
-          <img src="assets/projects/public-pc-2.jpg" alt="QC 3">
-          <img src="assets/projects/digitalform.png" alt="QC 4">
-          <!--<img src="assets/projects/file-navigator.jpg" alt="QC 5">
-          <img src="assets/projects/inspector-pc-display-transfer.jpg" alt="QC 6">
-          <img src="assets/projects/public-pc-display-transfer.jpg" alt="QC 7"> -->
+          <img src="assets/projects/inspector-pc.jpg" alt="QC 1" data-lightbox>
+          <img src="assets/projects/public-pc-1.jpg" alt="QC 2" data-lightbox>
+          <img src="assets/projects/public-pc-2.jpg" alt="QC 3" data-lightbox>
+          <img src="assets/projects/digitalform.png" alt="QC 4" data-lightbox>
         </div>
         <ul class="kv">
           <li><strong>Programming Language:</strong> VBA</li>
@@ -297,6 +300,7 @@
         <div class="see-more">
           <button class="btn btn-ghost btn-sm" onclick="toggleDetails(this)">See More</button>
           <div class="more-content">
+            <!-- (unchanged content) -->
             <div class="pair">
               <img src="assets/projects/digitalqc_detail1.png" alt="AMR detail 1" loading="lazy">
               <p><strong>Objective:</strong> Reduce QC operating time by eliminating repetitive tasks, improving productivity, enhancing data accuracy, achieving a paperless workflow, and creating a better working environment. The approach focuses on personalized/customized QC operations with low investment, developed in-house using Excel VBA.</p>
@@ -340,10 +344,10 @@
           </div>
         </div>
         <div class="gallery">
-          <img src="assets/projects/amr.jpg" alt="AMR 1">
-          <img src="assets/projects/amr-2.jpg" alt="AMR 2">
-          <img src="assets/projects/amr-charger.jpg" alt="AMR 3">
-          <img src="assets/projects/web-app-dev-layout.png" alt="AMR 4">
+          <img src="assets/projects/amr.jpg" alt="AMR 1" data-lightbox>
+          <img src="assets/projects/amr-2.jpg" alt="AMR 2" data-lightbox>
+          <img src="assets/projects/amr-charger.jpg" alt="AMR 3" data-lightbox>
+          <img src="assets/projects/web-app-dev-layout.png" alt="AMR 4" data-lightbox>
         </div>
         <ul class="kv">
           <li><strong>Programming Language:</strong> HTML, CSS, JavaScript</li>
@@ -354,6 +358,7 @@
         <div class="see-more">
           <button class="btn btn-ghost btn-sm" onclick="toggleDetails(this)">See More</button>
           <div class="more-content">
+            <!-- (unchanged content) -->
             <div class="pair">
               <img src="assets/projects/amr_detail1.png" alt="AMR detail 1" loading="lazy">
               <p><strong>Before-and-after solution:</strong> AMR replaces manual material handling, specifically in transporting assembly parts, motors, and packing materials in the Hair Dryer Assembly Area, reducing reliance on workers for these tasks.</p>
@@ -388,9 +393,9 @@
           </div>
         </div>
         <div class="gallery">
-          <img src="assets/projects/ai-assy-line-view.png" alt="AI Vision 1">
-          <img src="assets/projects/visualization.png" alt="AI Vision 2">
-          <img src="assets/projects/ai-st.png" alt="AI Vision 3">
+          <img src="assets/projects/ai-assy-line-view.png" alt="AI Vision 1" data-lightbox>
+          <img src="assets/projects/visualization.png" alt="AI Vision 2" data-lightbox>
+          <img src="assets/projects/ai-st.png" alt="AI Vision 3" data-lightbox>
         </div>
         <ul class="kv">
           <li><strong>Programming Language:</strong> Python</li>
@@ -401,6 +406,7 @@
         <div class="see-more">
           <button class="btn btn-ghost btn-sm" onclick="toggleDetails(this)">See More</button>
           <div class="more-content">
+            <!-- (unchanged content) -->
             <div class="pair">
               <img src="assets/projects/ai_detail1.png" alt="AMR detail 1" loading="lazy">
               <p><strong>Before-and-after solution:</strong> AI Vision enables real-time process tracking on Hair Dryer Assembly Lines. It monitors cycle times and detects abnormalities during the packing process, preventing part-missing issues and balancing workflows for higher efficiency. All data is recorded for traceability and future improvements.</p>
@@ -429,7 +435,7 @@
     <!-- PERSONAL INTERESTS -->
     <section id="interests" class="section">
       <h2 class="section-title">Personal Interests</h2>
-      <div class="hscroll">
+      <div class="hscroll grabbable">
         <div class="card pill"><h3>AI Integration App</h3><p>Prototyping assistants that connect sensors, APIs, and UI.</p></div>
         <div class="card pill"><h3>Game</h3><p>Building small gameplay prototypes and physics experiments.</p></div>
         <div class="card pill"><h3>Mobile App</h3><p>Lightweight utilities for capture, labeling, and on-device ML.</p></div>
@@ -439,7 +445,7 @@
     <!-- CERTIFICATES -->
     <section id="certs" class="section">
       <h2 class="section-title">Certificates & Achievements</h2>
-      <div class="hscroll">
+      <div class="hscroll grabbable">
         <div class="card pill cert">
           <div class="cert-media"><img src="assets/certs/borntodev-python.png" alt="Complete Python3 Programming"></div>
           <div class="cert-body">
@@ -477,17 +483,20 @@
     <div class="container">&copy; <span id="year"></span> Thunyasiri Jirachaiyapunt — Portfolio</div>
   </footer>
 
-  <!-- Video Modal -->
-  <div id="video-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Project Video">
+  <!-- Video / Image Modal -->
+  <div id="video-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Media">
     <div class="modal-backdrop" data-close></div>
     <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Close video">&times;</button>
+      <button class="modal-close" data-close aria-label="Close media">&times;</button>
       <div class="video-wrap">
         <iframe id="video-iframe" src="" allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>
       </div>
-      <p class="modal-fallback">If the video doesn't load, <a id="fallback-link" href="#" target="_blank" rel="noopener">open it directly</a>.</p>
+      <p class="modal-fallback">If the media doesn't load, <a id="fallback-link" href="#" target="_blank" rel="noopener">open it directly</a>.</p>
     </div>
   </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top btn btn-solid btn-sm" id="backToTop" aria-label="Back to top">↑</button>
 
   <script>
     // Footer year
@@ -503,7 +512,18 @@
       });
     });
 
-    // --- Video modal with full URL parsing ---
+    // Make rails draggable (mouse/touch)
+    document.querySelectorAll('.hscroll.grabbable').forEach((rail) => {
+      let isDown=false,startX,scrollLeft;
+      const start = (e)=>{ isDown=true; rail.classList.add('dragging'); startX=(e.pageX||e.touches[0].pageX)-rail.offsetLeft; scrollLeft=rail.scrollLeft; };
+      const move = (e)=>{ if(!isDown) return; e.preventDefault(); const x=(e.pageX||e.touches[0].pageX)-rail.offsetLeft; const walk=(x-startX)*1; rail.scrollLeft=scrollLeft-walk; };
+      const end = ()=>{ isDown=false; rail.classList.remove('dragging'); };
+      rail.addEventListener('mousedown', start); rail.addEventListener('touchstart', start, {passive:true});
+      window.addEventListener('mousemove', move, {passive:false}); window.addEventListener('touchmove', move, {passive:false});
+      window.addEventListener('mouseup', end); window.addEventListener('touchend', end);
+    });
+
+    // --- Video modal + lightbox (images) with full URL parsing ---
     function parseYouTube(url){
       try{
         const u = new URL(url); const host = u.hostname.replace('www.', '');
@@ -546,24 +566,151 @@
     function openModalFromUrl(url){
       const parsed = detect(url); const built = embed(parsed);
       if (!built){ alert('Unsupported or invalid video URL.'); return; }
-      iframe.src = built.src; fallback.href = built.share; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+      iframe.src = built.src; fallback.href = built.share; openModal();
     }
-    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); iframe.src=''; document.body.style.overflow=''; }
+    function openImageInModal(src){
+      // swap iframe for image without changing structure
+      iframe.src = '';
+      const wrap = modal.querySelector('.video-wrap');
+      wrap.innerHTML = `<img src="${src}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;border:0">`;
+      fallback.href = src; openModal();
+    }
+    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); iframe.src=''; modal.querySelector('.video-wrap').innerHTML = '<iframe id="video-iframe" src="" allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>'; document.body.style.overflow=''; }
 
     document.querySelectorAll('[data-video-url]').forEach(btn => { btn.addEventListener('click', () => openModalFromUrl(btn.getAttribute('data-video-url'))); });
+    document.querySelectorAll('[data-lightbox]').forEach(img => img.addEventListener('click', ()=> openImageInModal(img.src)));
     modal.addEventListener('click', e => { if (e.target.matches('[data-close]') || e.target.classList.contains('modal-backdrop')) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
+
     function toggleDetails(btn){
       const content = btn.parentElement.querySelector('.more-content');
       content.classList.toggle('open');
       btn.textContent = content.classList.contains('open') ? 'See Less' : 'See More';
     }
+    window.toggleDetails = toggleDetails; // keep global for inline onclick
+
+    // Lazy: fade-in for existing "lazy" class
+    document.querySelectorAll('img.lazy').forEach(img => {
+      img.addEventListener('load', () => img.classList.add('loaded'));
+      if (img.complete) img.classList.add('loaded');
+    });
+
+    // Scrollspy: highlight current section in topnav
+    const navLinks = [...document.querySelectorAll('.topnav a')];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = '#' + entry.target.id;
+        const link = navLinks.find(a=>a.getAttribute('href')===id);
+        if (!link) return;
+        if (entry.isIntersecting){
+          navLinks.forEach(a=>a.removeAttribute('aria-current'));
+          link.setAttribute('aria-current','true');
+          history.replaceState(null,'',id); // nice URL update
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(sec => spy.observe(sec));
+
+    // Scroll progress bar
+    const progress = document.getElementById('progressbar');
+    function updateProgress(){
+      const scrollTop = window.scrollY;
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const p = Math.max(0, Math.min(1, scrollTop / docH));
+      progress.style.transform = `scaleX(${p})`;
+    }
+    updateProgress(); window.addEventListener('scroll', updateProgress, {passive:true});
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    const showTop = ()=> backToTop.classList.toggle('show', window.scrollY > 600);
+    showTop(); window.addEventListener('scroll', showTop, {passive:true});
+    backToTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Theme toggle with localStorage
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) root.setAttribute('data-theme', saved);
+    themeToggle.setAttribute('aria-pressed', root.getAttribute('data-theme')==='light' ? 'true' : 'false');
+    themeToggle.textContent = root.getAttribute('data-theme')==='light' ? '☀️' : '🌙';
+    themeToggle.addEventListener('click', ()=>{
+      const isLight = root.getAttribute('data-theme')==='light';
+      const next = isLight ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeToggle.setAttribute('aria-pressed', (!isLight).toString());
+      themeToggle.textContent = next==='light' ? '☀️' : '🌙';
+    });
+
+    // === Header shrink + auto-hide ===
+    (() => {
+      const header = document.querySelector('.site-header');
+      if (!header) return;
+
+      const COMPACT_OFFSET = 80;     // px scrolled before compacting
+      const HIDE_OFFSET = 180;       // px scrolled before auto-hide can happen
+      const REVEAL_SENSITIVITY = 6;  // px minimal upward scroll to reveal
+      const ENABLE_AUTO_HIDE = true; // set to false if you only want compact
+
+      let lastY = window.scrollY;
+      let ticking = false;
+
+      // Use an IO sentinel to quickly know if we’re at the very top
+      const topSentinel = document.createElement('div');
+      topSentinel.setAttribute('aria-hidden','true');
+      topSentinel.style.position = 'absolute';
+      topSentinel.style.top = '0';
+      topSentinel.style.height = '1px';
+      document.body.prepend(topSentinel);
+
+      let atTop = true;
+      const io = new IntersectionObserver(([e]) => { atTop = e.isIntersecting; }, { rootMargin: '0px 0px 0px 0px', threshold: 0 });
+      io.observe(topSentinel);
+
+      function update(){
+        ticking = false;
+        const y = window.scrollY;
+        const delta = y - lastY;
+        lastY = y;
+
+        // Compact state
+        if (y > COMPACT_OFFSET){
+          header.classList.add('compact','is-scrolled');
+        } else {
+          header.classList.remove('compact','is-scrolled');
+        }
+
+        if (!ENABLE_AUTO_HIDE){
+          header.classList.remove('hide');
+          return;
+        }
+
+        // Auto-hide logic
+        const scrollingDown = delta > 0;
+        const scrollingUp = delta < -REVEAL_SENSITIVITY;
+
+        if (y > HIDE_OFFSET && scrollingDown){
+          header.classList.add('hide');
+        } else if (scrollingUp || atTop){
+          header.classList.remove('hide');
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking){
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Run once on load
+      update();
+    })();
+  
   </script>
-  <script>
-  document.querySelectorAll('img.lazy').forEach(img => {
-    img.addEventListener('load', () => img.classList.add('loaded'));
-    if (img.complete) img.classList.add('loaded');
-  });
-  </script>
+
 </body>
 </html>
