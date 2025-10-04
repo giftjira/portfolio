@@ -508,7 +508,7 @@
       const ARROW_STEP = 360;        // px to scroll per click
       const H_INTENT_EPS = 6;        // horizontal intent threshold in px
 
-      // 1) Arrow buttons: programmatic scroll + temporary snap
+      // 1) Arrow buttons: programmatic scroll + temporary snap (unchanged)
       document.querySelectorAll('.arrow').forEach(btn => {
         btn.addEventListener('click', () => {
           const id = btn.getAttribute('data-scroll');
@@ -516,7 +516,6 @@
           const rail = document.getElementById(id);
           if (!rail) return;
 
-          // enable snap briefly so items land neatly, then remove
           rail.classList.add('snap');
           rail.scrollBy({ left: dir * ARROW_STEP, behavior: 'smooth' });
           clearTimeout(rail._snapTimer);
@@ -524,15 +523,11 @@
         });
       });
 
-      // 2) Pointer/touch drag: allow vertical page scroll unless horizontal intent is clear
-      document.querySelectorAll('.hscroll.grabbable').forEach((rail) => {
+      // 2) Pointer/touch drag: apply to rails AND galleries
+      document.querySelectorAll('.hscroll.grabbable, .gallery').forEach((rail) => {
         let isDown = false, startX = 0, startY = 0, scrollLeft = 0, hadHorizontalIntent = false;
 
-        // Helper: start drag (mouse & touch)
         const start = (e) => {
-          // Don’t treat image lightbox taps as drags
-          if (e.target && e.target.closest('[data-lightbox]')) return;
-
           isDown = true;
           hadHorizontalIntent = false;
           rail.classList.add('dragging');
@@ -541,28 +536,28 @@
           startX = pageX;
           startY = pageY;
           scrollLeft = rail.scrollLeft;
+          // If this is a rail that uses snapping on arrows, ensure manual drag turns it off
+          rail.classList.remove('snap');
         };
 
         const move = (e) => {
           if (!isDown) return;
-
           const pageX = (e.touches ? e.touches[0].pageX : e.pageX);
           const pageY = (e.touches ? e.touches[0].pageY : e.pageY);
           const dx = pageX - startX;
           const dy = pageY - startY;
 
-          // Determine intent: only block vertical scrolling if horizontal dominates
           if (!hadHorizontalIntent) {
             if (Math.abs(dx) > Math.abs(dy) + H_INTENT_EPS) {
               hadHorizontalIntent = true;
             } else {
-              // Let the page scroll vertically; do NOT preventDefault
+              // allow page vertical scroll
               return;
             }
           }
 
-          // At this point we have horizontal intent -> prevent vertically bouncing the page
-          e.preventDefault(); // IMPORTANT: only after we’re sure it’s horizontal
+          // now we know it's a horizontal swipe: keep the page from rubber-banding
+          e.preventDefault();
           rail.scrollLeft = scrollLeft - dx;
         };
 
@@ -576,14 +571,10 @@
         window.addEventListener('mousemove', move, { passive: false });
         window.addEventListener('mouseup', end);
 
-        // Touch (passive on start/end; non-passive on move so we MAY preventDefault)
+        // Touch
         rail.addEventListener('touchstart', start, { passive: true });
         window.addEventListener('touchmove', move, { passive: false });
         window.addEventListener('touchend', end, { passive: true });
-
-        // Make sure snap is off during manual drags
-        rail.addEventListener('pointerdown', () => rail.classList.remove('snap'));
-        rail.addEventListener('touchstart', () => rail.classList.remove('snap'), { passive: true });
       });
     })();
 
