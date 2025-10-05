@@ -39,7 +39,7 @@ body{
 /* Progress bar under header */
 .progressbar{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand2));transform-origin:left center;transform:scaleX(0)}
 .section{margin:28px 0}
-.section-title{font-size:1.5rem;margin:0 0 12px 0;font-weight:800}
+.section-title{font-size:2rem;margin:0 0 12px 0;font-weight:800}
 .hint{color:var(--muted);font-size:.9rem;margin:.5rem 0 0}
 
 /* ------------------ Buttons / Links ------------------ */
@@ -54,7 +54,7 @@ body{
 .card{background:var(--card);border:1px solid var(--cardBorder);border-radius:18px;padding:18px;box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
 .card:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.28)}
 .card h3{margin:0 0 8px 0}
-.card.pill{ min-width:420px; max-width:480px; /* keep align but only effective when .snap is on */ }
+.card.pill{ min-width:380px; max-width:420px; /* keep align but only effective when .snap is on */ }
 .hscroll.snap .card.pill{ scroll-snap-align:start; }
 .grid.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media (pointer: coarse){
@@ -86,11 +86,11 @@ body{
 /* Icon grid */
 .icons-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:14px}
 .icons-grid figure{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0}
-.icons-grid img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
-.icons-grid figcaption{font-size:.8rem;color:var(--muted)}
+.icons-grid img{width:50px;height:50px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
+.icons-grid figcaption{font-size:.9rem;color:var(--muted)}
 
 .project{margin:18px 0}
-.project-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.project-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;font-size: 1.3rem;}
 .links{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
 /* Galleries */
@@ -129,7 +129,7 @@ body{
 .t-item{position:relative;margin:16px 0 16px 32px}
 .t-item .t-marker{position:absolute;left:-22px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(96,165,250,.3)}
 .t-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.t-thumb{width:56px;height:56px;border-radius:12px;object-fit:cover;border:1px solid var(--cardBorder);background:#000}
+.t-thumb{width:100px;height:100%;border-radius:12px;object-fit:cover;border:1px solid var(--cardBorder);background:#000}
 .t-meta{color:var(--muted);font-size:.9rem}
 .role{color:var(--text)}
 
