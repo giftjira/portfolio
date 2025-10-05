@@ -28,8 +28,8 @@ body{
 .site-header{position:sticky;top:0;z-index:40;background:rgba(2,6,23,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(148,163,184,.15)}
 :root[data-theme="light"] .site-header{background:#ffffffcc}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
-.brand h1{margin:0;font-weight:800;letter-spacing:.3px}
-.brand p{margin:4px 0 0;color:var(--muted)}
+.brand h1{margin:0;font-weight:800;letter-spacing:.3px;font-size:2.4rem}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:1.4rem}
 .topnav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .topnav a{color:var(--text);text-decoration:none;border:1px solid var(--cardBorder);padding:8px 12px;border-radius:12px;font-weight:700;transition:transform .2s ease, background .2s ease}
 .topnav a:hover{background:rgba(255,255,255,.08);transform:translateY(-1px)}
@@ -56,7 +56,7 @@ body{
 .card h3{margin:0 0 8px 0}
 .card.pill{ min-width:380px; max-width:420px; /* keep align but only effective when .snap is on */ }
 .hscroll.snap .card.pill{ scroll-snap-align:start; }
-.grid.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid.two{display:grid;grid-template-columns:1fr 1fr;gap:16px; font-size: 1.3rem;}
 @media (pointer: coarse){
   .hscroll.grabbable{ cursor:auto; }
 }
@@ -153,7 +153,7 @@ img { max-width: 100%; height: auto; }
 .lazy.loaded { opacity: 1; }
 
 .profile-pic{
-  width:240px; height:240px; border-radius:10%;
+  width:400px; height:400px; border-radius:10%;
   object-fit:cover; border:3px solid var(--brand);
   box-shadow: var(--shadow);
 }
@@ -188,10 +188,10 @@ img { max-width: 100%; height: auto; }
   will-change: transform;
 }
 .site-header.compact .header-inner{ padding: 10px 0; }
-.site-header.compact .brand h1{ font-size: 1.1rem; }
+.site-header.compact .brand h1{ font-size: 1.3rem; }
 .site-header.compact .brand p{ font-size: .85rem; }
-.site-header.compact .topnav a{ padding: 6px 10px; border-radius: 10px; }
-.site-header.compact .qr img{ width:120px; height:120px; }
+.site-header.compact .topnav a{ padding: 5px 8px; border-radius: 8px; }
+.site-header.compact .qr img{ width:80px; height:80px; }
 
 .site-header.hide{ transform: translateY(-100%); }
 
@@ -205,3 +205,5 @@ img { max-width: 100%; height: auto; }
   .site-header{ transition: none !important; }
   .site-header.hide{ transform: none !important; }
 }
+
+.kv {font-size: 1.1rem;}
