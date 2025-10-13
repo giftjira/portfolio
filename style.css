@@ -215,3 +215,5 @@ img { max-width: 100%; height: auto; }
 }
 
 .kv {font-size: 1.1rem;}
+
+img[data-lightbox] { cursor: zoom-in; }
