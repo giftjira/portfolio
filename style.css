@@ -217,3 +217,101 @@ img { max-width: 100%; height: auto; }
 .kv {font-size: 1.1rem;}
 
 img[data-lightbox] { cursor: zoom-in; }
+
+button {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  transition: transform 0.2s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* 🪩 Soft Pastel Animated Gradient */
+body {
+  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee);
+  background-size: 600% 600%;
+  animation: gradientShift 16s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* 🪶 Frosted Glass Cards */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.section, .hscroll {
+  padding-top: 30px; /* extra space for hover */
+  overflow: hidden;      /* keep performance smooth */
+}
+
+/* ------------------ Dark Mode Animated Gradient ------------------ */
+:root[data-theme="dark"] {
+  --bg: #0b1020;
+  --bg2: #0f172a;
+  --card: rgba(17,24,39,.6);
+  --cardBorder: rgba(148,163,184,.25);
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --brand: #60a5fa;
+  --brand2: #38bdf8;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+  --ring: 0 0 0 3px rgba(96,165,250,.35);
+}
+
+/* 🌌 Dark Mode Gradient Animation */
+:root[data-theme="dark"] body {
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #0f2027);
+  background-size: 800% 800%;
+  animation: darkGradientShift 18s ease infinite;
+}
+
+@keyframes darkGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Optional: Dark Mode frosted glass cards */
+:root[data-theme="dark"] .card {
+  background: rgba(17,24,39,0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148,163,184,0.25);
+}
+
+/* --- Add extra bottom padding to prevent clipping --- */
+.section .gallery {
+  padding-bottom: 20px; /* extra space for hovering images */
+  padding-top: 20px; 
+  overflow: hidden;     /* prevent overflow, keeps performance smooth */
+}
