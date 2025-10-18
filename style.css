@@ -232,27 +232,16 @@ button:hover {
 
 .card {
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
+  will-change: transform;
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* 🪩 Soft Pastel Animated Gradient */
-body {
-  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee);
-  background-size: 600% 600%;
-  animation: gradientShift 16s ease infinite;
-}
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 
@@ -271,7 +260,7 @@ body {
 }
 
 .section, .hscroll {
-  padding-top: 30px; /* extra space for hover */
+  padding-top: 20px; /* extra space for hover */
   overflow: hidden;      /* keep performance smooth */
 }
 
@@ -289,11 +278,10 @@ body {
   --ring: 0 0 0 3px rgba(96,165,250,.35);
 }
 
-/* 🌌 Dark Mode Gradient Animation */
-:root[data-theme="dark"] body {
-  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #0f2027);
-  background-size: 800% 800%;
-  animation: darkGradientShift 18s ease infinite;
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes darkGradientShift {
@@ -301,6 +289,7 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
 
 /* Optional: Dark Mode frosted glass cards */
 :root[data-theme="dark"] .card {
@@ -311,7 +300,30 @@ body {
 
 /* --- Add extra bottom padding to prevent clipping --- */
 .section .gallery {
-  padding-bottom: 20px; /* extra space for hovering images */
-  padding-top: 20px; 
+  padding-bottom: 40px; /* extra space for hovering images */
+  padding-top: 40px; 
   overflow: hidden;     /* prevent overflow, keeps performance smooth */
+}
+
+.bg-animated {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: 600% 600%;
+  animation: gradientShift 16s ease infinite;
+  will-change: transform;
+}
+
+/* Light mode gradient */
+:root[data-theme="light"] .bg-animated {
+  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee);
+  background-size: 600% 600%;
+  animation: gradientShift 16s ease infinite;
+}
+
+/* Dark mode gradient */
+:root[data-theme="dark"] .bg-animated {
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #0f2027);
+  background-size: 800% 800%;
+  animation: darkGradientShift 18s ease infinite;
 }
