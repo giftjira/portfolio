@@ -153,9 +153,9 @@ img { max-width: 100%; height: auto; }
 .lazy.loaded { opacity: 1; }
 
 .profile-pic{
-  width:336px; height:480px; border-radius:10%;
+  width:370px; height:528px; border-radius:5%;
   object-fit:cover; border:3px solid var(--brand);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow); border-color: #475569;
 }
 
 .qr { margin-top:12px; display:flex; align-items:center; gap:12px; color:var(--muted); }
